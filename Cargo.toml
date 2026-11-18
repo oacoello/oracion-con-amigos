@@ -1,0 +1,13 @@
+[package]
+name = "app-oracion"
+version = "0.1.0"
+edition = "2021"
+description = "Aplicación de escritorio en Rust para guiar tiempos de oración por Google Meet con interfaz Material Expressive"
+
+[dependencies]
+tao = "0.37"
+wry = "0.57"
+
+[profile.release]
+opt-level = 3
+lto = true

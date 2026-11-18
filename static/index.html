@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oración con amigos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600&display=swap"
+    rel="stylesheet"
+  />
+  <!--__INLINE_CSS__-->
+</head>
+<body data-theme="serenity" data-mode="light">
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    <div class="ambient-wave"></div>
+  </div>
+
+  <div class="app-shell" id="appShell">
+    <!-- Barra superior -->
+    <header class="top-bar">
+      <div class="brand-area">
+        <div class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6 2.1-2.1"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="meeting-title" id="meetingTitle">Oración con amigos</h1>
+          <p class="meeting-subtitle" id="totalRemainingLabel">Duración total: 18:00</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-pill-btn" id="soundToggleBtn" title="Activar/Silenciar campana suave (M)" aria-label="Sonido">
+          <svg class="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <svg class="icon-sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <button class="icon-pill-btn" id="darkModeBtn" title="Cambiar modo claro/oscuro" aria-label="Modo oscuro">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button class="tonal-btn" id="meetModeBtn" title="Ocultar controles (H)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+          <span>Ocultar controles</span>
+        </button>
+
+        <button class="filled-tonal-btn" id="openConfigBtn" title="Configurar puntos y tiempos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line>
+          </svg>
+          <span>Configurar puntos</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Botón flotante discreto para salir del Modo Meet -->
+    <button class="exit-meet-pill hidden" id="exitMeetBtn" title="Mostrar controles (H)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+      <span>Mostrar controles (H)</span>
+    </button>
+
+    <!-- Indicador de progreso de segmentos -->
+    <nav class="stepper-container" aria-label="Puntos de oración">
+      <div class="stepper-pills" id="stepperPills"></div>
+    </nav>
+
+    <!-- Escenario principal para compartir en Google Meet -->
+    <main class="stage-container">
+      <section class="prayer-card" id="prayerCard">
+        <div class="prayer-content">
+          <div class="segment-chip" id="segmentCounterChip">Punto 1 de 5</div>
+          <h2 class="segment-title" id="segmentTitle">Alabanza y Acción de Gracias</h2>
+          <p class="segment-description" id="segmentDescription">
+            Agradecemos a Dios por su fidelidad, su amor y las bendiciones de esta semana.
+          </p>
+
+          <div class="next-preview" id="nextPreview">
+            <span class="next-label">Siguiente:</span>
+            <span class="next-title" id="nextTitle">Por nuestras familias y seres queridos</span>
+          </div>
+        </div>
+
+        <!-- Cronómetro / Cuenta regresiva con animación suave -->
+        <div class="timer-column">
+          <div class="timer-wrapper" id="timerWrapper">
+            <div class="timer-halo" aria-hidden="true"></div>
+            <svg class="timer-ring" viewBox="0 0 260 260" aria-hidden="true">
+              <circle class="timer-track" cx="130" cy="130" r="112"></circle>
+              <circle class="timer-progress" id="timerProgress" cx="130" cy="130" r="112"></circle>
+            </svg>
+            <div class="timer-center">
+              <span class="timer-status" id="timerStatus">Listo</span>
+              <div class="timer-digits" id="timerDigits">03:00</div>
+              <span class="timer-duration-hint" id="timerDurationHint">de 03:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pantalla de finalización -->
+      <section class="completed-card hidden" id="completedCard">
+        <div class="completed-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <h2 class="completed-title">Tiempo de oración completado</h2>
+        <p class="completed-subtitle">
+          Gracias por compartir este momento juntos. Que la paz de Dios permanezca en cada uno.
+        </p>
+        <div class="completed-actions">
+          <button class="expressive-fab" id="restartAllBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            <span>Volver a empezar</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Barra de controles inferior -->
+    <footer class="controls-dock" id="controlsDock">
+      <div class="dock-pill">
+        <button class="dock-icon-btn" id="prevBtn" title="Punto anterior (←)" aria-label="Punto anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="19 20 9 12 19 4 19 20"></polygon>
+            <line x1="5" y1="19" x2="5" y2="5"></line>
+          </svg>
+        </button>
+
+        <button class="dock-adjust-btn" id="minusMinBtn" title="Restar 1 minuto">-1 min</button>
+
+        <button class="expressive-fab" id="playPauseBtn" title="Iniciar / Pausar (Espacio)">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+          </svg>
+          <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16" rx="1.5"></rect>
+            <rect x="14" y="4" width="4" height="16" rx="1.5"></rect>
+          </svg>
+          <span id="playPauseLabel">Iniciar</span>
+        </button>
+
+        <button class="dock-adjust-btn" id="plusMinBtn" title="Agregar 1 minuto">+1 min</button>
+
+        <button class="dock-icon-btn" id="resetBtn" title="Reiniciar punto actual (R)" aria-label="Reiniciar punto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+        </button>
+
+        <button class="dock-icon-btn" id="nextBtn" title="Siguiente punto (→)" aria-label="Siguiente punto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 4 15 12 5 20 5 4"></polygon>
+            <line x1="19" y1="5" x2="19" y2="19"></line>
+          </svg>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Panel lateral de configuración (Material 3 Side Sheet) -->
+  <div class="sheet-backdrop hidden" id="sheetBackdrop"></div>
+  <aside class="config-sheet hidden" id="configSheet" aria-label="Configurar puntos de oración">
+    <div class="sheet-header">
+      <div>
+        <h2>Configurar oración</h2>
+        <p>Personaliza los puntos, duraciones y estilo visual.</p>
+      </div>
+      <button class="icon-pill-btn" id="closeConfigBtn" aria-label="Cerrar configuración">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sheet-body">
+      <!-- Ajustes generales -->
+      <div class="config-section">
+        <label class="field-label" for="titleInput">Título de la reunión</label>
+        <input type="text" id="titleInput" class="m3-input" placeholder="Ej. Tiempo de Oración" />
+
+        <div class="switch-row">
+          <div>
+            <div class="switch-title">Avance automático</div>
+            <div class="switch-desc">Al terminar el cronómetro, pasa e inicia el siguiente punto.</div>
+          </div>
+          <label class="m3-switch">
+            <input type="checkbox" id="autoAdvanceInput" checked />
+            <span class="m3-slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Escenarios por punto -->
+      <div class="config-section">
+        <span class="field-label">Escenarios visuales</span>
+        <p class="section-hint">
+          Cada punto de oración cambia automáticamente de escenario y color para que se note la transición en Google Meet. También puedes elegir el escenario de cada punto abajo.
+        </p>
+      </div>
+
+      <!-- Plantillas rápidas -->
+      <div class="config-section">
+        <span class="field-label">Plantillas rápidas</span>
+        <div class="preset-row">
+          <button class="tonal-chip-btn" data-preset="general">Reunión General (18m)</button>
+          <button class="tonal-chip-btn" data-preset="express">Oración Express (10m)</button>
+          <button class="tonal-chip-btn" data-preset="deep">Intercesión (30m)</button>
+        </div>
+      </div>
+
+      <!-- Lista de segmentos -->
+      <div class="config-section">
+        <div class="section-header-row">
+          <span class="field-label">Segmentos de oración</span>
+          <button class="tonal-btn small-btn" id="addSegmentBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Agregar punto</span>
+          </button>
+        </div>
+
+        <div class="segments-editor-list" id="segmentsEditorList"></div>
+      </div>
+    </div>
+
+    <div class="sheet-footer">
+      <span class="save-status" id="saveStatus"></span>
+      <button class="expressive-fab" id="saveConfigBtn">
+        <span>Guardar y aplicar</span>
+      </button>
+    </div>
+  </aside>
+
+  <!--__INITIAL_CONFIG__-->
+  <!--__INLINE_JS__-->
+</body>
+</html>
